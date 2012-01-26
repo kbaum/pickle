@@ -130,6 +130,18 @@ module Pickle
           Factory(@name, attrs)
         end
       end
+
+
+      def build(attrs = {})
+        if defined? ::FactoryGirl
+          ::FactoryGirl.build(@name, attrs)
+        else
+          Factory.build(@name, attrs)
+        end
+      end
+
+
+
     end
 
     # fabrication adapter
